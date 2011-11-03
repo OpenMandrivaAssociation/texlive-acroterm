@@ -1,3 +1,9 @@
+# revision 20498
+# category Package
+# catalog-ctan /macros/latex/contrib/acroterm
+# catalog-date 2010-11-19 20:33:28 +0100
+# catalog-license lppl1.3
+# catalog-version 0.1
 Name:		texlive-acroterm
 Version:	0.1
 Release:	1
@@ -44,6 +50,7 @@ index each of terms and acronyms with their expanded form.
 #- source
 %doc %{_texmfdistdir}/source/latex/acroterm/acroterm.dtx
 %doc %{_texmfdistdir}/source/latex/acroterm/acroterm.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -54,3 +61,5 @@ index each of terms and acronyms with their expanded form.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
