@@ -32,7 +32,6 @@ index each of terms and acronyms with their expanded form.
 	%{_sbindir}/texlive.post
     fi
 
-
 #-----------------------------------------------------------------------
 %files
 %{_texmfdistdir}/tex/latex/acroterm/acroterm.sty
