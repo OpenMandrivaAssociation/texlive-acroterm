@@ -6,7 +6,7 @@
 # catalog-version 0.1
 Name:		texlive-acroterm
 Version:	0.1
-Release:	8
+Release:	9
 Summary:	Manage and index acronyms and terms
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/acroterm
