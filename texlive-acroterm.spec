@@ -1,6 +1,6 @@
 Name:		texlive-acroterm
 Version:	61719
-Release:	1
+Release:	2
 Summary:	Manage and index acronyms and terms
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/acroterm
