@@ -1,47 +1,25 @@
-Name:		texlive-acroterm
-Version:	61719
-Release:	2
+%global tl_name acroterm
+%global tl_revision 61719
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.1
+Release:	%{tl_revision}.1
 Summary:	Manage and index acronyms and terms
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/acroterm
-License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/acroterm.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/acroterm.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/acroterm.source.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/acroterm.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/acroterm.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/acroterm.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-Yet another package for acronyms: the package offers simple
-markup of acronyms and technical terms in the text, giving an
-index each of terms and acronyms with their expanded form.
+Yet another package for acronyms: the package offers simple markup of
+acronyms and technical terms in the text, giving an index each of terms
+and acronyms with their expanded form.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/acroterm/acroterm.sty
-%doc %{_texmfdistdir}/doc/latex/acroterm/README
-%doc %{_texmfdistdir}/doc/latex/acroterm/acroterm.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/acroterm/acroterm.dtx
-%doc %{_texmfdistdir}/source/latex/acroterm/acroterm.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
